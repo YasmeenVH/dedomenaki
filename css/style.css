@@ -463,3 +463,238 @@ nav a:hover {
     text-align: left;
   }
 }
+
+/* =========================================================
+   PEOPLE PAGE
+========================================================= */
+
+.people-page {
+  margin: 0;
+  padding: 0;
+
+  background: rgb(245, 245, 242);
+  color: black;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+
+/* -------------------------
+   HEADER
+------------------------- */
+
+.people-page header {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+
+  padding: 28px 35px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  z-index: 100;
+}
+
+.people-page .logo {
+  color: black;
+
+  text-decoration: none;
+
+  font-size: 18px;
+  font-weight: 600;
+
+  letter-spacing: 0.08em;
+}
+
+.people-page nav {
+  display: flex;
+  gap: 30px;
+}
+
+.people-page nav a {
+  color: black;
+
+  text-decoration: none;
+
+  font-size: 13px;
+  font-weight: 400;
+
+  letter-spacing: 0.08em;
+
+  transition: opacity 0.2s ease;
+}
+
+.people-page nav a:hover {
+  opacity: 0.5;
+}
+
+
+/* -------------------------
+   CONTENT
+------------------------- */
+
+.people-content {
+  width: 100%;
+
+  padding: 145px 35px 150px;
+}
+
+
+/* -------------------------
+   LABEL
+------------------------- */
+
+.people-label {
+  margin-bottom: 70px;
+
+  font-size: 13px;
+  font-weight: 500;
+
+  letter-spacing: 0.08em;
+}
+
+
+/* -------------------------
+   TWO COLUMN GRID
+------------------------- */
+
+.people-grid {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 40px;
+}
+
+
+/* -------------------------
+   PERSON
+------------------------- */
+
+.person {
+  width: 100%;
+}
+
+
+/* -------------------------
+   PHOTO
+------------------------- */
+
+.person-photo {
+  display: block;
+
+  width: 100%;
+
+  height: 520px;
+
+  object-fit: cover;
+
+  margin-bottom: 30px;
+}
+
+
+/* -------------------------
+   NAME
+------------------------- */
+
+.person h2 {
+  margin-bottom: 25px;
+
+  font-size: clamp(28px, 3vw, 46px);
+
+  line-height: 1;
+
+  letter-spacing: -0.04em;
+
+  font-weight: 500;
+}
+
+
+/* -------------------------
+   BIO
+------------------------- */
+
+.person p {
+  max-width: 650px;
+
+  font-size: 17px;
+
+  line-height: 1.4;
+
+  letter-spacing: -0.01em;
+
+  font-weight: 400;
+}
+
+.person p strong {
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   PEOPLE — MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .people-page header {
+    padding: 20px;
+  }
+
+  .people-page nav {
+    gap: 15px;
+  }
+
+  .people-page nav a {
+    font-size: 11px;
+  }
+
+
+  .people-content {
+    padding: 110px 20px 80px;
+  }
+
+
+  .people-label {
+    margin-bottom: 50px;
+  }
+
+
+  .people-grid {
+    display: block;
+  }
+
+
+  .person {
+    margin-bottom: 80px;
+  }
+
+
+  .person-photo {
+    height: 400px;
+
+    margin-bottom: 25px;
+  }
+
+
+  .person h2 {
+    font-size: 9vw;
+
+    margin-bottom: 20px;
+  }
+
+
+  .person p {
+    font-size: 16px;
+
+    line-height: 1.4;
+  }
+}
