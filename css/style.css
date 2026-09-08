@@ -156,6 +156,7 @@ nav a:hover {
 .about-page {
   background: rgb(245, 245, 242);
   color: black;
+  overflow: hidden;
 }
 
 #about-canvas {
@@ -163,16 +164,21 @@ nav a:hover {
   inset: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 0;
+  z-index: 1;
 }
 
 #about-canvas canvas {
   display: block;
+  width: 100vw !important;
+  height: 100vh !important;
 }
 
 .about-page header {
-  color: black;
-  z-index: 10;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 20;
 }
 
 .about-page .logo,
@@ -182,26 +188,31 @@ nav a:hover {
 
 .about-content {
   position: relative;
-  z-index: 5;
+  z-index: 10;
 
   width: 100%;
   min-height: 100vh;
 
   padding: 150px 35px 80px;
 
+  color: black;
   pointer-events: none;
 }
 
 .about-content h1 {
+  color: black;
+
   font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.08em;
 
-  margin-bottom: 60px;
+  margin: 0 0 60px 0;
 }
 
 .about-copy {
   width: min(700px, 75vw);
+
+  color: black;
 
   font-size: clamp(25px, 3vw, 46px);
   line-height: 1.08;
@@ -209,9 +220,11 @@ nav a:hover {
 }
 
 .about-copy p {
-  margin-bottom: 32px;
+  color: black;
+  margin: 0 0 32px 0;
 }
 
 .about-copy strong {
+  color: black;
   font-weight: 500;
 }
