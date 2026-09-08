@@ -157,7 +157,8 @@ nav a:hover {
   padding: 0;
   background: rgb(245, 245, 242);
   color: black;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 /* P5 BACKGROUND */
@@ -237,7 +238,7 @@ nav a:hover {
   z-index: 50;
 
   min-height: 100vh;
-
+  padding-bottom: 120px;
   padding: 150px 35px 80px;
 
   color: black;
