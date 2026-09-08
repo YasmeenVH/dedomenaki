@@ -24,11 +24,15 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  let canvas = createCanvas(windowWidth, windowHeight);
+
+  // Put the p5 canvas inside the background container
+  canvas.parent('p5-container');
+
   imageMode(CENTER);
 
   // Create the initial data particles
-  for (let i = 0; i < 70; i++) {
+  for (let i = 0; i < 25; i++) {
     particles.push(new DataParticle());
   }
 }
