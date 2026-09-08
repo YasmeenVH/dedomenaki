@@ -261,18 +261,30 @@ nav a:hover {
   position: relative;
   z-index: 50;
   
-  width: min(1100px, 90vw);
+  width: 100%;
 
-  font-size: clamp(32px, 4.2vw, 68px);
-  line-height: 0.98;
+  font-size: clamp(25px, 3vw, 46px);
+  line-height: 1.02;
 
-  letter-spacing: -0.04em;
+  letter-spacing: -0.035em;
 
   font-weight: 500;
 }
 
 .about-copy p {
-  margin: 0 0 55px 0;
+  position: relative;
+  margin: 0 0 90px 0;
+  max-width: 650px;
+}
+
+.about-copy .text-left {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+.about-copy .text-right {
+  margin-left: auto;
+  margin-right: 0;
 }
 
 .about-copy strong {
