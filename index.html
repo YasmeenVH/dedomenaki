@@ -1,63 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Dedomenaki</title>
+  <title>Dedomenaki</title>
 
-    <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-    <header>
-        <a href="index.html" class="logo">DEDOMENAKI</a>
+  <!-- p5.js photograph + interactive layer -->
+  <div id="p5-container"></div>
 
-        <nav>
-            <a href="about.html">ABOUT</a>
-            <a href="people.html">PEOPLE</a>
-            <a href="approach.html">APPROACH</a>
-            <a href="contact.html">CONTACT</a>
-        </nav>
-    </header>
+  <!-- Website content -->
+  <header>
+    <a href="index.html" class="logo">DEDOMENAKI</a>
 
+    <nav>
+      <a href="about.html">ABOUT</a>
+      <a href="people.html">PEOPLE</a>
+      <a href="approach.html">APPROACH</a>
+      <a href="contact.html">CONTACT</a>
+    </nav>
+  </header>
 
-    <main>
+  <main class="hero">
 
-        <section class="hero">
+    <div class="hero-text">
+      <h1>
+        DATA IS THE GROUND<br>
+        WE STAND ON.
+      </h1>
 
-            <div class="hero-text">
-                <p class="eyebrow">DEDOMENAKI</p>
+      <p>
+        We work with scientists, institutions, archives, and cultural
+        organizations to turn the data they hold into something legible,
+        rigorous, and unmistakably theirs.
+      </p>
+    </div>
 
-                <h1>
-                    DATA IS THE GROUND
-                    WE STAND ON.
-                </h1>
+  </main>
 
-                <p class="intro">
-                    We work with scientists, institutions, archives,
-                    and cultural organizations to turn the data they
-                    hold into something legible, rigorous,
-                    and unmistakably theirs.
-                </p>
-            </div>
-
-            <div id="p5-container"></div>
-
-        </section>
-
-    </main>
-
-
-    <footer>
-        <p>© 2026 DEDOMENAKI</p>
-    </footer>
-
-
-    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.0/lib/p5.min.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/sketch.js"></script>
+  <!-- p5 -->
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/sketch.js"></script>
 
 </body>
 </html>
