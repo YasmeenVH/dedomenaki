@@ -245,6 +245,7 @@ nav a:hover {
 
 /* =========================================================
    ABOUT — TEXT GRID
+   RESTORED FROM WORKING VERSION
 ========================================================= */
 
 .about-page .about-copy {
@@ -256,7 +257,7 @@ nav a:hover {
 
   display: grid;
 
-  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-template-columns: repeat(12, 1fr);
 
   column-gap: 20px;
 
@@ -274,16 +275,18 @@ nav a:hover {
 
 /* =========================================================
    ABOUT — PARAGRAPHS
+   RESTORED WIDTH / POSITIONING
 ========================================================= */
 
 .about-page .about-copy p {
   position: relative;
 
+  margin-top: 0;
+  margin-bottom: 110px;
+
   margin: 0;
 
-  width: 100%;
-
-  max-width: none;
+  max-width: 48vw;
 
   text-align: left;
 }
@@ -294,6 +297,9 @@ nav a:hover {
 ========================================================= */
 
 .about-page .about-copy p.text-left {
+  margin-left: 0;
+  margin-right: auto;
+
   grid-column: 1 / 7;
 
   text-align: left;
@@ -305,6 +311,9 @@ nav a:hover {
 ========================================================= */
 
 .about-page .about-copy p.text-right {
+  margin-left: 50vw;
+  margin-right: 0;
+
   grid-column: 7 / 13;
 
   text-align: left;
@@ -316,12 +325,13 @@ nav a:hover {
 ========================================================= */
 
 .about-page .about-copy strong {
-  font-weight: 600;
+  font-weight: 500;
 }
 
 
 /* =========================================================
    PEOPLE PAGE
+   COMPLETELY ISOLATED FROM ABOUT
 ========================================================= */
 
 .people-page {
@@ -509,9 +519,9 @@ nav a:hover {
   }
 
 
-  /* -------------------------
-     HOME
-  ------------------------- */
+  /* =======================================================
+     HOME — MOBILE
+  ======================================================= */
 
   header {
     padding: 20px;
@@ -541,9 +551,10 @@ nav a:hover {
   }
 
 
-  /* -------------------------
-     ABOUT
-  ------------------------- */
+  /* =======================================================
+     ABOUT — MOBILE
+     RESTORED FROM WORKING VERSION
+  ======================================================= */
 
   .about-page header {
     padding: 20px;
@@ -576,9 +587,7 @@ nav a:hover {
   }
 
   .about-page .about-copy p {
-    width: 100%;
-
-    max-width: none;
+    max-width: 90vw;
 
     margin-bottom: 70px;
   }
@@ -596,9 +605,9 @@ nav a:hover {
   }
 
 
-  /* -------------------------
-     PEOPLE
-  ------------------------- */
+  /* =======================================================
+     PEOPLE — MOBILE
+  ======================================================= */
 
   .people-page header {
     padding: 20px;
