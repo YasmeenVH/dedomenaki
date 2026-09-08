@@ -148,3 +148,70 @@ nav a:hover {
     font-size: 15px;
   }
 }
+
+/* =========================
+   ABOUT PAGE
+========================= */
+
+.about-page {
+  background: rgb(245, 245, 242);
+  color: black;
+}
+
+#about-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+}
+
+#about-canvas canvas {
+  display: block;
+}
+
+.about-page header {
+  color: black;
+  z-index: 10;
+}
+
+.about-page .logo,
+.about-page nav a {
+  color: black;
+}
+
+.about-content {
+  position: relative;
+  z-index: 5;
+
+  width: 100%;
+  min-height: 100vh;
+
+  padding: 150px 35px 80px;
+
+  pointer-events: none;
+}
+
+.about-content h1 {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+
+  margin-bottom: 60px;
+}
+
+.about-copy {
+  width: min(700px, 75vw);
+
+  font-size: clamp(25px, 3vw, 46px);
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+}
+
+.about-copy p {
+  margin-bottom: 32px;
+}
+
+.about-copy strong {
+  font-weight: 500;
+}
