@@ -234,7 +234,7 @@ class Fragment {
         d,
         0,
         220,
-        3.5,
+        7,
         0
       );
 
@@ -268,11 +268,13 @@ class Fragment {
 
     if (this.active) {
 
-      fill(0, 220);
+      fill(0, 230);
+      textSize(this.size * 1.35);
 
     } else {
 
-      fill(0, 70);
+      fill(0, 65);
+      textSize(this.size);
 
     }
 
