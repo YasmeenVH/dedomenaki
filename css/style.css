@@ -12,9 +12,10 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* -------------------------
-   P5 BACKGROUND
-------------------------- */
+
+/* =========================================================
+   HOME PAGE — P5 BACKGROUND
+========================================================= */
 
 #p5-container {
   position: fixed;
@@ -24,9 +25,14 @@ body {
   z-index: 0;
 }
 
-/* -------------------------
-   HEADER
-------------------------- */
+#p5-container canvas {
+  display: block;
+}
+
+
+/* =========================================================
+   HOME PAGE — HEADER
+========================================================= */
 
 header {
   position: fixed;
@@ -41,7 +47,7 @@ header {
   justify-content: space-between;
   align-items: center;
 
-  z-index: 10;
+  z-index: 100;
 }
 
 .logo {
@@ -63,6 +69,7 @@ nav a {
   text-decoration: none;
 
   font-size: 13px;
+  font-weight: 400;
   letter-spacing: 0.08em;
 
   transition: opacity 0.2s ease;
@@ -72,9 +79,10 @@ nav a:hover {
   opacity: 0.5;
 }
 
-/* -------------------------
-   HERO
-------------------------- */
+
+/* =========================================================
+   HOME PAGE — HERO
+========================================================= */
 
 .hero {
   position: relative;
@@ -116,43 +124,10 @@ nav a:hover {
   letter-spacing: -0.01em;
 }
 
-/* -------------------------
-   MOBILE
-------------------------- */
 
-@media (max-width: 700px) {
-
-  header {
-    padding: 20px;
-  }
-
-  nav {
-    gap: 15px;
-  }
-
-  nav a {
-    font-size: 11px;
-  }
-
-  .hero-text {
-    left: 20px;
-    bottom: 30px;
-    width: calc(100% - 40px);
-  }
-
-  .hero h1 {
-    font-size: 14vw;
-  }
-
-  .hero p {
-    font-size: 15px;
-  }
-}
-
-
-/* =========================
+/* =========================================================
    ABOUT PAGE
-========================= */
+========================================================= */
 
 .about-page {
   margin: 0;
@@ -166,9 +141,9 @@ nav a:hover {
 }
 
 
-/* -------------------------
-   P5 INTERACTIVE LAYER
-------------------------- */
+/* =========================================================
+   ABOUT PAGE — INTERACTIVE P5 LAYER
+========================================================= */
 
 #about-canvas {
   position: fixed;
@@ -199,9 +174,9 @@ nav a:hover {
 }
 
 
-/* -------------------------
-   ABOUT HEADER
-------------------------- */
+/* =========================================================
+   ABOUT PAGE — HEADER
+========================================================= */
 
 .about-page header {
   position: fixed;
@@ -254,9 +229,9 @@ nav a:hover {
 }
 
 
-/* -------------------------
-   ABOUT CONTENT
-------------------------- */
+/* =========================================================
+   ABOUT PAGE — CONTENT
+========================================================= */
 
 .about-content {
   position: relative;
@@ -273,9 +248,9 @@ nav a:hover {
 }
 
 
-/* -------------------------
-   ABOUT LABEL
-------------------------- */
+/* =========================================================
+   ABOUT PAGE — LABEL
+========================================================= */
 
 .about-label {
   margin-bottom: 90px;
@@ -287,9 +262,9 @@ nav a:hover {
 }
 
 
-/* -------------------------
-   MAIN ABOUT TEXT
-------------------------- */
+/* =========================================================
+   ABOUT PAGE — MAIN TEXT
+========================================================= */
 
 .about-copy {
   position: relative;
@@ -297,6 +272,14 @@ nav a:hover {
   z-index: 50;
 
   width: 100%;
+
+  display: grid;
+
+  grid-template-columns: repeat(12, 1fr);
+
+  column-gap: 20px;
+
+  row-gap: 110px;
 
   font-size: clamp(25px, 3vw, 46px);
 
@@ -308,54 +291,104 @@ nav a:hover {
 }
 
 
-/* Each paragraph is its own visual block */
+/* =========================================================
+   ABOUT PAGE — INDIVIDUAL TEXT BLOCKS
+========================================================= */
 
 .about-copy p {
   position: relative;
 
-  margin-top: 0;
-  margin-bottom: 110px;
+  margin: 0;
 
-  max-width: 48vw;
+  max-width: none;
+
+  text-align: left;
 }
 
 
-/* -------------------------
-   LEFT TEXT
-------------------------- */
+/* =========================================================
+   LEFT-SIDE SENTENCES
+========================================================= */
 
 .about-copy p.text-left {
-  margin-left: 0;
-  margin-right: auto;
+  grid-column: 1 / 7;
 
   text-align: left;
 }
 
 
-/* -------------------------
-   RIGHT TEXT
-------------------------- */
+/* =========================================================
+   RIGHT-SIDE SENTENCES
+========================================================= */
 
 .about-copy p.text-right {
-  margin-left: 50vw;
-  margin-right: 0;
+  grid-column: 7 / 13;
 
   text-align: left;
 }
 
 
-/* Keep bold text visually consistent */
+/* =========================================================
+   BOLD TEXT
+========================================================= */
 
 .about-copy strong {
   font-weight: 500;
 }
 
 
-/* -------------------------
-   MOBILE ABOUT
-------------------------- */
+/* =========================================================
+   MOBILE
+========================================================= */
 
 @media (max-width: 700px) {
+
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
+
+  /* -------------------------
+     HOME HEADER
+  ------------------------- */
+
+  header {
+    padding: 20px;
+  }
+
+  nav {
+    gap: 15px;
+  }
+
+  nav a {
+    font-size: 11px;
+  }
+
+
+  /* -------------------------
+     HOME HERO
+  ------------------------- */
+
+  .hero-text {
+    left: 20px;
+    bottom: 30px;
+
+    width: calc(100% - 40px);
+  }
+
+  .hero h1 {
+    font-size: 14vw;
+  }
+
+  .hero p {
+    font-size: 15px;
+  }
+
+
+  /* -------------------------
+     ABOUT HEADER
+  ------------------------- */
 
   .about-page header {
     padding: 20px;
@@ -369,15 +402,32 @@ nav a:hover {
     font-size: 11px;
   }
 
+
+  /* -------------------------
+     ABOUT CONTENT
+  ------------------------- */
+
   .about-content {
-    padding: 110px 20px 80px;
+    padding: 110px 20px 100px;
   }
+
+
+  /* -------------------------
+     ABOUT LABEL
+  ------------------------- */
 
   .about-label {
     margin-bottom: 60px;
   }
 
+
+  /* -------------------------
+     ABOUT TEXT
+  ------------------------- */
+
   .about-copy {
+    display: block;
+
     width: 100%;
 
     font-size: 8vw;
@@ -391,13 +441,25 @@ nav a:hover {
     margin-bottom: 70px;
   }
 
-  /* On mobile, don't push text off-screen */
+
+  /* -------------------------
+     MOBILE LEFT
+  ------------------------- */
 
   .about-copy p.text-left {
     margin-left: 0;
+
+    text-align: left;
   }
+
+
+  /* -------------------------
+     MOBILE RIGHT
+  ------------------------- */
 
   .about-copy p.text-right {
     margin-left: 10vw;
+
+    text-align: left;
   }
 }
