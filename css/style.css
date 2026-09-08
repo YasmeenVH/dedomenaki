@@ -170,6 +170,7 @@ nav a:hover {
   width: 100vw;
   height: 100vh;
   z-index: 1;
+  pointer-events: none;
 }
 
 #about-canvas canvas {
@@ -236,10 +237,10 @@ nav a:hover {
   position: relative;
 
   z-index: 50;
-
+  width: 100%;
   min-height: 100vh;
   padding-bottom: 120px;
-  padding: 150px 35px 80px;
+  padding: 150px 35px 120px;
 
   color: black;
 }
