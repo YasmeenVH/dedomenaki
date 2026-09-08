@@ -1,0 +1,85 @@
+```css
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f5f2;
+    color: #111;
+}
+
+header {
+    width: 100%;
+    padding: 25px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: #111;
+    text-decoration: none;
+    font-weight: bold;
+    letter-spacing: 0.08em;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    color: #111;
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+.hero {
+    min-height: calc(100vh - 100px);
+    padding: 10vh 8vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.eyebrow {
+    font-size: 13px;
+    letter-spacing: 0.15em;
+    margin-bottom: 30px;
+}
+
+h1 {
+    max-width: 900px;
+    font-size: clamp(50px, 9vw, 140px);
+    line-height: 0.9;
+    letter-spacing: -0.05em;
+}
+
+.intro {
+    max-width: 600px;
+    margin-top: 50px;
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+#p5-container {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+}
+
+footer {
+    padding: 30px;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+}
+```
