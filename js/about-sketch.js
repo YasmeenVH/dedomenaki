@@ -20,6 +20,7 @@ function setup() {
 
   canvas.parent("about-canvas");
 
+  // Keep the p5 canvas behind the HTML text
   canvas.style("position", "absolute");
   canvas.style("top", "0");
   canvas.style("left", "0");
@@ -27,6 +28,7 @@ function setup() {
 
   textFont("Arial");
 
+  // Create fragments
   for (let i = 0; i < 45; i++) {
     fragments.push(new Fragment());
   }
@@ -35,10 +37,17 @@ function setup() {
 
 function draw() {
 
-  // Keep the canvas transparent
+  // Transparent canvas
   clear();
 
-  // Draw connections
+  // Size of interactive area around mouse
+  let interactionRadius = 220;
+
+
+  // --------------------------------
+  // CONNECTIONS BETWEEN DATA
+  // --------------------------------
+
   for (let i = 0; i < fragments.length; i++) {
 
     for (let j = i + 1; j < fragments.length; j++) {
@@ -66,52 +75,114 @@ function draw() {
   }
 
 
-  // Draw fragments
+  // --------------------------------
+  // DATA FRAGMENTS
+  // --------------------------------
+
   for (let fragment of fragments) {
+
     fragment.update();
     fragment.display();
+
   }
 
 
-  // Interactive lens
+  // --------------------------------
+  // INTERACTIVE LENS
+  // --------------------------------
+
   noFill();
-  stroke(0, 70);
+
+  stroke(0, 100);
   strokeWeight(1);
 
-  circle(mouseX, mouseY, 180);
+  circle(
+    mouseX,
+    mouseY,
+    interactionRadius * 2
+  );
+
+
+  // Inner circle
+
+  stroke(0, 35);
+
+  circle(
+    mouseX,
+    mouseY,
+    interactionRadius * 2 - 12
+  );
 }
 
+
+// ==================================
+// FRAGMENT
+// ==================================
 
 class Fragment {
 
   constructor() {
 
+    // Starting position
+
     this.x = random(width);
     this.y = random(height);
+
+
+    // Very slow ambient movement
 
     this.vx = random(-0.15, 0.15);
     this.vy = random(-0.15, 0.15);
 
+
+    // Text size
+
     this.size = random(9, 15);
+
+
+    // Word
 
     this.word = random(fragmentWords);
 
-    this.number = random(0, 99999)
-      .toFixed(random() > 0.5 ? 0 : 3);
 
-    // Decide once: word OR number
-    this.type = random() > 0.5 ? "word" : "number";
+    // Number
+
+    this.number = random(0, 99999)
+      .toFixed(
+        random() > 0.5 ? 0 : 3
+      );
+
+
+    // Decide once whether this
+    // fragment is a word or number
+
+    this.type =
+      random() > 0.5
+        ? "word"
+        : "number";
+
+
+    // Interaction state
+
+    this.active = false;
   }
 
 
+  // --------------------------------
+  // UPDATE
+  // --------------------------------
+
   update() {
 
-    // Slow movement
+    // Slow ambient movement
+
     this.x += this.vx;
     this.y += this.vy;
 
 
-    // Wrap around edges
+    // --------------------------------
+    // WRAP AROUND SCREEN
+    // --------------------------------
 
     if (this.x < 0) {
       this.x = width;
@@ -130,7 +201,9 @@ class Fragment {
     }
 
 
-    // Mouse interaction
+    // --------------------------------
+    // MOUSE INTERACTION
+    // --------------------------------
 
     let d = dist(
       this.x,
@@ -140,35 +213,70 @@ class Fragment {
     );
 
 
-    if (d < 180) {
+    if (d < 220) {
+
+      this.active = true;
+
+
+      // Push fragments away
+      // from the mouse
 
       let angle = atan2(
         this.y - mouseY,
         this.x - mouseX
       );
 
+
+      // Strongest near cursor
+
       let force = map(
         d,
         0,
-        180,
-        1.5,
+        220,
+        3.5,
         0
       );
 
-      this.x += cos(angle) * force;
-      this.y += sin(angle) * force;
+
+      this.x +=
+        cos(angle) * force;
+
+      this.y +=
+        sin(angle) * force;
+
+    } else {
+
+      this.active = false;
+
     }
   }
 
+
+  // --------------------------------
+  // DISPLAY
+  // --------------------------------
 
   display() {
 
     noStroke();
 
-    fill(0, 100);
-
     textSize(this.size);
 
+
+    // Active fragments become darker
+
+    if (this.active) {
+
+      fill(0, 220);
+
+    } else {
+
+      fill(0, 70);
+
+    }
+
+
+    // Draw word or number
 
     if (this.type === "word") {
 
@@ -185,21 +293,42 @@ class Fragment {
         this.x,
         this.y
       );
+
     }
 
 
-    // Small data point
+    // --------------------------------
+    // DATA POINT
+    // --------------------------------
 
-    fill(0);
+    if (this.active) {
 
-    circle(
-      this.x - 8,
-      this.y - 4,
-      2
-    );
+      fill(0);
+
+      circle(
+        this.x - 8,
+        this.y - 4,
+        3
+      );
+
+    } else {
+
+      fill(0, 80);
+
+      circle(
+        this.x - 8,
+        this.y - 4,
+        2
+      );
+
+    }
   }
 }
 
+
+// ==================================
+// WINDOW RESIZE
+// ==================================
 
 function windowResized() {
 
@@ -207,4 +336,5 @@ function windowResized() {
     windowWidth,
     windowHeight
   );
+
 }
