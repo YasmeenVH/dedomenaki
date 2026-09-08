@@ -148,7 +148,6 @@ nav a:hover {
     font-size: 15px;
   }
 }
-
 /* =========================
    ABOUT PAGE
 ========================= */
@@ -156,21 +155,25 @@ nav a:hover {
 .about-page {
   background: rgb(245, 245, 242);
   color: black;
-  overflow: hidden;
+  margin: 0;
+  padding: 0;
 }
 
 #about-canvas {
   position: fixed;
-  inset: 0;
+  top: 0;
+  left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 1;
+  z-index: 0;
 }
 
 #about-canvas canvas {
+  position: absolute !important;
+  top: 0;
+  left: 0;
   display: block;
-  width: 100vw !important;
-  height: 100vh !important;
+  z-index: 0 !important;
 }
 
 .about-page header {
@@ -178,7 +181,7 @@ nav a:hover {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 20;
+  z-index: 100;
 }
 
 .about-page .logo,
@@ -188,7 +191,7 @@ nav a:hover {
 
 .about-content {
   position: relative;
-  z-index: 10;
+  z-index: 50;
 
   width: 100%;
   min-height: 100vh;
@@ -196,20 +199,20 @@ nav a:hover {
   padding: 150px 35px 80px;
 
   color: black;
-  pointer-events: none;
 }
 
 .about-content h1 {
   color: black;
-
   font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.08em;
-
   margin: 0 0 60px 0;
 }
 
 .about-copy {
+  position: relative;
+  z-index: 50;
+
   width: min(700px, 75vw);
 
   color: black;
@@ -222,6 +225,11 @@ nav a:hover {
 .about-copy p {
   color: black;
   margin: 0 0 32px 0;
+}
+
+.about-copy strong {
+  color: black;
+  font-weight: 500;
 }
 
 .about-copy strong {
