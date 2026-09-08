@@ -145,7 +145,7 @@ nav a:hover {
    ABOUT PAGE — INTERACTIVE P5 LAYER
 ========================================================= */
 
-#about-canvas {
+.about-page #about-canvas {
   position: fixed;
 
   top: 0;
@@ -159,7 +159,7 @@ nav a:hover {
   pointer-events: none;
 }
 
-#about-canvas canvas {
+.about-page #about-canvas canvas {
   position: absolute !important;
 
   top: 0 !important;
@@ -233,7 +233,7 @@ nav a:hover {
    ABOUT PAGE — CONTENT
 ========================================================= */
 
-.about-content {
+.about-page .about-content {
   position: relative;
 
   z-index: 50;
@@ -252,7 +252,7 @@ nav a:hover {
    ABOUT PAGE — LABEL
 ========================================================= */
 
-.about-label {
+.about-page .about-label {
   margin-bottom: 90px;
 
   font-size: 13px;
@@ -266,7 +266,7 @@ nav a:hover {
    ABOUT PAGE — MAIN TEXT
 ========================================================= */
 
-.about-copy {
+.about-page .about-copy {
   position: relative;
 
   z-index: 50;
@@ -295,7 +295,7 @@ nav a:hover {
    ABOUT PAGE — INDIVIDUAL TEXT BLOCKS
 ========================================================= */
 
-.about-copy p {
+.about-page .about-copy p {
   position: relative;
 
   margin: 0;
@@ -307,10 +307,10 @@ nav a:hover {
 
 
 /* =========================================================
-   LEFT-SIDE SENTENCES
+   ABOUT PAGE — LEFT
 ========================================================= */
 
-.about-copy p.text-left {
+.about-page .about-copy p.text-left {
   grid-column: 1 / 7;
 
   text-align: left;
@@ -318,10 +318,10 @@ nav a:hover {
 
 
 /* =========================================================
-   RIGHT-SIDE SENTENCES
+   ABOUT PAGE — RIGHT
 ========================================================= */
 
-.about-copy p.text-right {
+.about-page .about-copy p.text-right {
   grid-column: 7 / 13;
 
   text-align: left;
@@ -329,140 +329,13 @@ nav a:hover {
 
 
 /* =========================================================
-   BOLD TEXT
+   ABOUT PAGE — BOLD
 ========================================================= */
 
-.about-copy strong {
+.about-page .about-copy strong {
   font-weight: 500;
 }
 
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media (max-width: 700px) {
-
-  html,
-  body {
-    overflow-x: hidden;
-  }
-
-
-  /* -------------------------
-     HOME HEADER
-  ------------------------- */
-
-  header {
-    padding: 20px;
-  }
-
-  nav {
-    gap: 15px;
-  }
-
-  nav a {
-    font-size: 11px;
-  }
-
-
-  /* -------------------------
-     HOME HERO
-  ------------------------- */
-
-  .hero-text {
-    left: 20px;
-    bottom: 30px;
-
-    width: calc(100% - 40px);
-  }
-
-  .hero h1 {
-    font-size: 14vw;
-  }
-
-  .hero p {
-    font-size: 15px;
-  }
-
-
-  /* -------------------------
-     ABOUT HEADER
-  ------------------------- */
-
-  .about-page header {
-    padding: 20px;
-  }
-
-  .about-page nav {
-    gap: 15px;
-  }
-
-  .about-page nav a {
-    font-size: 11px;
-  }
-
-
-  /* -------------------------
-     ABOUT CONTENT
-  ------------------------- */
-
-  .about-content {
-    padding: 110px 20px 100px;
-  }
-
-
-  /* -------------------------
-     ABOUT LABEL
-  ------------------------- */
-
-  .about-label {
-    margin-bottom: 60px;
-  }
-
-
-  /* -------------------------
-     ABOUT TEXT
-  ------------------------- */
-
-  .about-copy {
-    display: block;
-
-    width: 100%;
-
-    font-size: 8vw;
-
-    line-height: 1.05;
-  }
-
-  .about-copy p {
-    max-width: 90vw;
-
-    margin-bottom: 70px;
-  }
-
-
-  /* -------------------------
-     MOBILE LEFT
-  ------------------------- */
-
-  .about-copy p.text-left {
-    margin-left: 0;
-
-    text-align: left;
-  }
-
-
-  /* -------------------------
-     MOBILE RIGHT
-  ------------------------- */
-
-  .about-copy p.text-right {
-    margin-left: 10vw;
-
-    text-align: left;
-  }
-}
 
 /* =========================================================
    PEOPLE PAGE
@@ -480,9 +353,9 @@ nav a:hover {
 }
 
 
-/* -------------------------
-   HEADER
-------------------------- */
+/* =========================================================
+   PEOPLE PAGE — HEADER
+========================================================= */
 
 .people-page header {
   position: fixed;
@@ -535,9 +408,9 @@ nav a:hover {
 }
 
 
-/* -------------------------
-   CONTENT
-------------------------- */
+/* =========================================================
+   PEOPLE PAGE — CONTENT
+========================================================= */
 
 .people-content {
   width: 100%;
@@ -546,9 +419,9 @@ nav a:hover {
 }
 
 
-/* -------------------------
-   LABEL
-------------------------- */
+/* =========================================================
+   PEOPLE PAGE — LABEL
+========================================================= */
 
 .people-label {
   margin-bottom: 70px;
@@ -560,9 +433,9 @@ nav a:hover {
 }
 
 
-/* -------------------------
-   TWO COLUMN GRID
-------------------------- */
+/* =========================================================
+   PEOPLE PAGE — TWO COLUMNS
+========================================================= */
 
 .people-grid {
   width: 100%;
@@ -575,38 +448,40 @@ nav a:hover {
 }
 
 
-/* -------------------------
-   PERSON
-------------------------- */
+/* =========================================================
+   PEOPLE PAGE — PERSON
+========================================================= */
 
 .person {
   width: 100%;
 }
 
 
-/* -------------------------
-   PHOTO
-------------------------- */
+/* =========================================================
+   PEOPLE PAGE — PHOTOS
+========================================================= */
 
-.person-photo {
+.people-page .person-photo {
   display: block;
 
   width: 100%;
+
   height: 520px;
 
   object-fit: cover;
 
   margin-bottom: 30px;
 
-  filter: grayscale(100%) contrast(1.08);
+  /* BLACK AND WHITE */
+  filter: grayscale(100%) contrast(1.08) !important;
 }
 
 
-/* -------------------------
-   NAME
-------------------------- */
+/* =========================================================
+   PEOPLE PAGE — NAMES
+========================================================= */
 
-.person h2 {
+.people-page .person h2 {
   margin-bottom: 25px;
 
   font-size: clamp(28px, 3vw, 46px);
@@ -619,11 +494,11 @@ nav a:hover {
 }
 
 
-/* -------------------------
-   BIO
-------------------------- */
+/* =========================================================
+   PEOPLE PAGE — BIOS
+========================================================= */
 
-.person p {
+.people-page .person p {
   max-width: 650px;
 
   font-size: 17px;
@@ -635,16 +510,111 @@ nav a:hover {
   font-weight: 400;
 }
 
-.person p strong {
+.people-page .person p strong {
   font-weight: 600;
 }
 
 
 /* =========================================================
-   PEOPLE — MOBILE
+   MOBILE
 ========================================================= */
 
 @media (max-width: 700px) {
+
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
+
+  /* -------------------------
+     HOME
+  ------------------------- */
+
+  header {
+    padding: 20px;
+  }
+
+  nav {
+    gap: 15px;
+  }
+
+  nav a {
+    font-size: 11px;
+  }
+
+  .hero-text {
+    left: 20px;
+    bottom: 30px;
+
+    width: calc(100% - 40px);
+  }
+
+  .hero h1 {
+    font-size: 14vw;
+  }
+
+  .hero p {
+    font-size: 15px;
+  }
+
+
+  /* -------------------------
+     ABOUT
+  ------------------------- */
+
+  .about-page header {
+    padding: 20px;
+  }
+
+  .about-page nav {
+    gap: 15px;
+  }
+
+  .about-page nav a {
+    font-size: 11px;
+  }
+
+  .about-page .about-content {
+    padding: 110px 20px 100px;
+  }
+
+  .about-page .about-label {
+    margin-bottom: 60px;
+  }
+
+  .about-page .about-copy {
+    display: block;
+
+    width: 100%;
+
+    font-size: 8vw;
+
+    line-height: 1.05;
+  }
+
+  .about-page .about-copy p {
+    max-width: 90vw;
+
+    margin-bottom: 70px;
+  }
+
+  .about-page .about-copy p.text-left {
+    margin-left: 0;
+
+    text-align: left;
+  }
+
+  .about-page .about-copy p.text-right {
+    margin-left: 10vw;
+
+    text-align: left;
+  }
+
+
+  /* -------------------------
+     PEOPLE
+  ------------------------- */
 
   .people-page header {
     padding: 20px;
@@ -658,42 +628,38 @@ nav a:hover {
     font-size: 11px;
   }
 
-
   .people-content {
     padding: 110px 20px 80px;
   }
-
 
   .people-label {
     margin-bottom: 50px;
   }
 
-
   .people-grid {
     display: block;
   }
-
 
   .person {
     margin-bottom: 80px;
   }
 
-
-  .person-photo {
+  .people-page .person-photo {
+    width: 100%;
     height: 400px;
 
     margin-bottom: 25px;
+
+    filter: grayscale(100%) contrast(1.08) !important;
   }
 
-
-  .person h2 {
+  .people-page .person h2 {
     font-size: 9vw;
 
     margin-bottom: 20px;
   }
 
-
-  .person p {
+  .people-page .person p {
     font-size: 16px;
 
     line-height: 1.4;
