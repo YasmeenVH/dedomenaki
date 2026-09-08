@@ -28,7 +28,7 @@ function setup() {
   imageMode(CENTER);
 
   // Create the initial data particles
-  for (let i = 0; i < 150; i++) {
+  for (let i = 0; i < 70; i++) {
     particles.push(new DataParticle());
   }
 }
