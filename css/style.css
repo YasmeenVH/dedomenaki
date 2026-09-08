@@ -239,8 +239,7 @@ nav a:hover {
   z-index: 50;
   width: 100%;
   min-height: 100vh;
-  padding-bottom: 120px;
-  padding: 150px 35px 120px;
+  padding: 145px 35px 140px;
 
   color: black;
 }
@@ -258,18 +257,22 @@ nav a:hover {
 /* MAIN TEXT */
 
 .about-copy {
-  width: min(720px, 75vw);
 
-  font-size: clamp(25px, 3vw, 46px);
-  line-height: 1.08;
+  position: relative;
+  z-index: 50;
+  
+  width: min(1100px, 90vw);
 
-  letter-spacing: -0.025em;
+  font-size: clamp(32px, 4.2vw, 68px);
+  line-height: 0.98;
+
+  letter-spacing: -0.04em;
 
   font-weight: 500;
 }
 
 .about-copy p {
-  margin: 0 0 32px 0;
+  margin: 0 0 55px 0;
 }
 
 .about-copy strong {
