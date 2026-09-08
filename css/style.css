@@ -14,7 +14,7 @@ body {
 
 
 /* =========================================================
-   HOME PAGE — P5 BACKGROUND
+   HOME PAGE
 ========================================================= */
 
 #p5-container {
@@ -29,18 +29,11 @@ body {
   display: block;
 }
 
-
-/* =========================================================
-   HOME PAGE — HEADER
-========================================================= */
-
 header {
   position: fixed;
   top: 0;
   left: 0;
-
   width: 100%;
-
   padding: 28px 35px;
 
   display: flex;
@@ -53,7 +46,6 @@ header {
 .logo {
   color: white;
   text-decoration: none;
-
   font-size: 18px;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -67,11 +59,9 @@ nav {
 nav a {
   color: white;
   text-decoration: none;
-
   font-size: 13px;
   font-weight: 400;
   letter-spacing: 0.08em;
-
   transition: opacity 0.2s ease;
 }
 
@@ -81,28 +71,22 @@ nav a:hover {
 
 
 /* =========================================================
-   HOME PAGE — HERO
+   HOME — HERO
 ========================================================= */
 
 .hero {
   position: relative;
-
   width: 100%;
   height: 100vh;
-
   z-index: 5;
-
   pointer-events: none;
 }
 
 .hero-text {
   position: absolute;
-
   left: 35px;
   bottom: 55px;
-
   width: min(720px, 75vw);
-
   color: white;
 }
 
@@ -111,16 +95,13 @@ nav a:hover {
   line-height: 0.9;
   letter-spacing: -0.045em;
   font-weight: 500;
-
   margin-bottom: 28px;
 }
 
 .hero p {
   max-width: 580px;
-
   font-size: 17px;
   line-height: 1.4;
-
   letter-spacing: -0.01em;
 }
 
@@ -142,7 +123,7 @@ nav a:hover {
 
 
 /* =========================================================
-   ABOUT PAGE — INTERACTIVE P5
+   ABOUT — P5 CANVAS
 ========================================================= */
 
 .about-page #about-canvas {
@@ -175,7 +156,7 @@ nav a:hover {
 
 
 /* =========================================================
-   ABOUT PAGE — HEADER
+   ABOUT — HEADER
 ========================================================= */
 
 .about-page header {
@@ -230,7 +211,7 @@ nav a:hover {
 
 
 /* =========================================================
-   ABOUT PAGE — CONTENT
+   ABOUT — CONTENT
 ========================================================= */
 
 .about-page .about-content {
@@ -249,7 +230,7 @@ nav a:hover {
 
 
 /* =========================================================
-   ABOUT PAGE — LABEL
+   ABOUT — LABEL
 ========================================================= */
 
 .about-page .about-label {
@@ -263,7 +244,7 @@ nav a:hover {
 
 
 /* =========================================================
-   ABOUT PAGE — TEXT
+   ABOUT — TEXT GRID
 ========================================================= */
 
 .about-page .about-copy {
@@ -272,6 +253,14 @@ nav a:hover {
   z-index: 50;
 
   width: 100%;
+
+  display: grid;
+
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+
+  column-gap: 20px;
+
+  row-gap: 110px;
 
   font-size: clamp(25px, 3vw, 46px);
 
@@ -284,47 +273,46 @@ nav a:hover {
 
 
 /* =========================================================
-   ABOUT PAGE — INDIVIDUAL PARAGRAPHS
+   ABOUT — PARAGRAPHS
 ========================================================= */
 
 .about-page .about-copy p {
   position: relative;
 
-  width: 58%;
-  max-width: 850px;
+  margin: 0;
 
-  margin: 0 0 140px 0;
+  width: 100%;
+
+  max-width: none;
 
   text-align: left;
 }
 
 
 /* =========================================================
-   ABOUT PAGE — LEFT TEXT
+   ABOUT — LEFT
 ========================================================= */
 
 .about-page .about-copy p.text-left {
-  margin-left: 0;
-  margin-right: auto;
+  grid-column: 1 / 7;
 
   text-align: left;
 }
 
 
 /* =========================================================
-   ABOUT PAGE — RIGHT TEXT
+   ABOUT — RIGHT
 ========================================================= */
 
 .about-page .about-copy p.text-right {
-  margin-left: 42%;
-  margin-right: 0;
+  grid-column: 7 / 13;
 
   text-align: left;
 }
 
 
 /* =========================================================
-   ABOUT PAGE — BOLD
+   ABOUT — BOLD
 ========================================================= */
 
 .about-page .about-copy strong {
@@ -349,7 +337,7 @@ nav a:hover {
 
 
 /* =========================================================
-   PEOPLE PAGE — HEADER
+   PEOPLE — HEADER
 ========================================================= */
 
 .people-page header {
@@ -404,7 +392,7 @@ nav a:hover {
 
 
 /* =========================================================
-   PEOPLE PAGE — CONTENT
+   PEOPLE — CONTENT
 ========================================================= */
 
 .people-page .people-content {
@@ -415,7 +403,7 @@ nav a:hover {
 
 
 /* =========================================================
-   PEOPLE PAGE — LABEL
+   PEOPLE — LABEL
 ========================================================= */
 
 .people-page .people-label {
@@ -429,7 +417,7 @@ nav a:hover {
 
 
 /* =========================================================
-   PEOPLE PAGE — TWO COLUMNS
+   PEOPLE — TWO COLUMN GRID
 ========================================================= */
 
 .people-page .people-grid {
@@ -444,7 +432,7 @@ nav a:hover {
 
 
 /* =========================================================
-   PEOPLE PAGE — PERSON
+   PEOPLE — PERSON
 ========================================================= */
 
 .people-page .person {
@@ -453,7 +441,7 @@ nav a:hover {
 
 
 /* =========================================================
-   PEOPLE PAGE — PHOTOS
+   PEOPLE — PHOTOS
 ========================================================= */
 
 .people-page .person-photo {
@@ -472,7 +460,7 @@ nav a:hover {
 
 
 /* =========================================================
-   PEOPLE PAGE — NAMES
+   PEOPLE — NAMES
 ========================================================= */
 
 .people-page .person h2 {
@@ -489,7 +477,7 @@ nav a:hover {
 
 
 /* =========================================================
-   PEOPLE PAGE — BIOS
+   PEOPLE — BIOS
 ========================================================= */
 
 .people-page .person p {
@@ -578,6 +566,8 @@ nav a:hover {
   }
 
   .about-page .about-copy {
+    display: block;
+
     width: 100%;
 
     font-size: 8vw;
@@ -586,7 +576,7 @@ nav a:hover {
   }
 
   .about-page .about-copy p {
-    width: 90%;
+    width: 100%;
 
     max-width: none;
 
