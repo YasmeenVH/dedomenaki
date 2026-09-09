@@ -646,3 +646,264 @@ nav a:hover {
     line-height: 1.4;
   }
 }
+
+/* =========================================================
+   CONTACT PAGE
+========================================================= */
+
+.contact-page {
+  margin: 0;
+  padding: 0;
+
+  background: rgb(245, 245, 242);
+  color: black;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+
+/* =========================================================
+   CONTACT — HEADER
+========================================================= */
+
+.contact-page header {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+
+  padding: 28px 35px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  z-index: 100;
+}
+
+.contact-page .logo {
+  color: black;
+
+  text-decoration: none;
+
+  font-size: 18px;
+  font-weight: 600;
+
+  letter-spacing: 0.08em;
+}
+
+.contact-page nav {
+  display: flex;
+  gap: 30px;
+}
+
+.contact-page nav a {
+  color: black;
+
+  text-decoration: none;
+
+  font-size: 13px;
+  font-weight: 400;
+
+  letter-spacing: 0.08em;
+
+  transition: opacity 0.2s ease;
+}
+
+.contact-page nav a:hover {
+  opacity: 0.5;
+}
+
+
+/* =========================================================
+   CONTACT — CONTENT
+========================================================= */
+
+.contact-page .contact-content {
+  width: 100%;
+
+  padding: 145px 35px 150px;
+}
+
+
+/* =========================================================
+   CONTACT — LABEL
+========================================================= */
+
+.contact-page .contact-label {
+  margin-bottom: 90px;
+
+  font-size: 13px;
+  font-weight: 500;
+
+  letter-spacing: 0.08em;
+}
+
+
+/* =========================================================
+   CONTACT — FORM
+========================================================= */
+
+.contact-page .contact-form {
+  width: 100%;
+  max-width: 900px;
+}
+
+
+/* =========================================================
+   CONTACT — FIELD
+========================================================= */
+
+.contact-page .form-field {
+  margin-bottom: 55px;
+}
+
+.contact-page .form-field label {
+  display: block;
+
+  margin-bottom: 15px;
+
+  font-size: 13px;
+  font-weight: 500;
+
+  letter-spacing: 0.08em;
+}
+
+
+/* =========================================================
+   CONTACT — INPUTS
+========================================================= */
+
+.contact-page .form-field input,
+.contact-page .form-field textarea {
+  display: block;
+
+  width: 100%;
+
+  padding: 18px 0;
+
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.35);
+
+  border-radius: 0;
+
+  background: transparent;
+
+  color: black;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 20px;
+
+  outline: none;
+}
+
+.contact-page .form-field input::placeholder,
+.contact-page .form-field textarea::placeholder {
+  color: rgba(0, 0, 0, 0.35);
+}
+
+
+/* =========================================================
+   CONTACT — FOCUS
+========================================================= */
+
+.contact-page .form-field input:focus,
+.contact-page .form-field textarea:focus {
+  border-bottom: 1px solid black;
+}
+
+
+/* =========================================================
+   CONTACT — MESSAGE
+========================================================= */
+
+.contact-page .message-field {
+  margin-top: 20px;
+}
+
+.contact-page .form-field textarea {
+  min-height: 180px;
+
+  resize: vertical;
+
+  line-height: 1.4;
+}
+
+
+/* =========================================================
+   CONTACT — SEND
+========================================================= */
+
+.contact-page button {
+  margin-top: 10px;
+
+  padding: 0;
+
+  border: none;
+
+  background: transparent;
+
+  color: black;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  letter-spacing: 0.08em;
+
+  cursor: pointer;
+}
+
+.contact-page button:hover {
+  opacity: 0.5;
+}
+
+
+/* =========================================================
+   CONTACT — MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .contact-page header {
+    padding: 20px;
+  }
+
+  .contact-page nav {
+    gap: 15px;
+  }
+
+  .contact-page nav a {
+    font-size: 11px;
+  }
+
+  .contact-page .contact-content {
+    padding: 110px 20px 80px;
+  }
+
+  .contact-page .contact-label {
+    margin-bottom: 60px;
+  }
+
+  .contact-page .contact-form {
+    width: 100%;
+  }
+
+  .contact-page .form-field {
+    margin-bottom: 45px;
+  }
+
+  .contact-page .form-field input,
+  .contact-page .form-field textarea {
+    font-size: 17px;
+  }
+
+  .contact-page .form-field textarea {
+    min-height: 160px;
+  }
+}
