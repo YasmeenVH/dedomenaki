@@ -220,7 +220,6 @@ nav a:hover {
   z-index: 50;
 
   width: 100%;
-
   min-height: 100vh;
 
   padding: 145px 35px 180px;
@@ -244,9 +243,31 @@ nav a:hover {
 
 
 /* =========================================================
-   ABOUT — TEXT GRID
-   RESTORED FROM WORKING VERSION
+   ABOUT — TEXT
 ========================================================= */
+
+/*
+   The About page intentionally does NOT use a grid.
+
+   Each paragraph flows vertically in sequence.
+   Left paragraphs stay on the left.
+   Right paragraphs shift horizontally by 50vw.
+
+   This creates the staggered composition:
+   
+   LEFT
+   paragraph
+
+                         RIGHT
+                         paragraph
+
+   LEFT
+   paragraph
+
+                         RIGHT
+                         paragraph
+*/
+
 
 .about-page .about-copy {
   position: relative;
@@ -255,13 +276,7 @@ nav a:hover {
 
   width: 100%;
 
-  display: grid;
-
-  grid-template-columns: repeat(12, 1fr);
-
-  column-gap: 20px;
-
-  row-gap: 110px;
+  display: block;
 
   font-size: clamp(25px, 3vw, 46px);
 
@@ -275,46 +290,40 @@ nav a:hover {
 
 /* =========================================================
    ABOUT — PARAGRAPHS
-   RESTORED WIDTH / POSITIONING
 ========================================================= */
 
 .about-page .about-copy p {
   position: relative;
 
+  width: 48vw;
+  max-width: 48vw;
+
   margin-top: 0;
   margin-bottom: 110px;
-
-  margin: 0;
-
-  max-width: 48vw;
 
   text-align: left;
 }
 
 
 /* =========================================================
-   ABOUT — LEFT
+   ABOUT — LEFT PARAGRAPHS
 ========================================================= */
 
 .about-page .about-copy p.text-left {
   margin-left: 0;
   margin-right: auto;
 
-  grid-column: 1 / 7;
-
   text-align: left;
 }
 
 
 /* =========================================================
-   ABOUT — RIGHT
+   ABOUT — RIGHT PARAGRAPHS
 ========================================================= */
 
 .about-page .about-copy p.text-right {
   margin-left: 50vw;
   margin-right: 0;
-
-  grid-column: 7 / 13;
 
   text-align: left;
 }
@@ -331,7 +340,6 @@ nav a:hover {
 
 /* =========================================================
    PEOPLE PAGE
-   COMPLETELY ISOLATED FROM ABOUT
 ========================================================= */
 
 .people-page {
@@ -553,7 +561,6 @@ nav a:hover {
 
   /* =======================================================
      ABOUT — MOBILE
-     RESTORED FROM WORKING VERSION
   ======================================================= */
 
   .about-page header {
@@ -577,9 +584,9 @@ nav a:hover {
   }
 
   .about-page .about-copy {
-    display: block;
-
     width: 100%;
+
+    display: block;
 
     font-size: 8vw;
 
@@ -587,6 +594,7 @@ nav a:hover {
   }
 
   .about-page .about-copy p {
+    width: 90vw;
     max-width: 90vw;
 
     margin-bottom: 70px;
