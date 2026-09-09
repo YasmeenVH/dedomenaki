@@ -241,91 +241,70 @@ nav a:hover {
   letter-spacing: 0.08em;
 }
 
-
 /* =========================================================
    ABOUT — TEXT
 ========================================================= */
 
-/*
-   The About page intentionally does NOT use a grid.
-
-   Each paragraph flows vertically in sequence.
-   Left paragraphs stay on the left.
-   Right paragraphs shift horizontally by 50vw.
-
-   This creates the staggered composition:
-   
-   LEFT
-   paragraph
-
-                         RIGHT
-                         paragraph
-
-   LEFT
-   paragraph
-
-                         RIGHT
-                         paragraph
-*/
-
-
 .about-page .about-copy {
   position: relative;
-
   z-index: 50;
 
-  width: 100%;
+  display: block !important;
 
-  display: block;
+  width: 100% !important;
+  max-width: none !important;
 
   font-size: clamp(25px, 3vw, 46px);
-
   line-height: 1.02;
-
   letter-spacing: -0.035em;
-
   font-weight: 500;
 }
 
 
 /* =========================================================
-   ABOUT — PARAGRAPHS
+   ABOUT — ALL PARAGRAPHS
 ========================================================= */
 
 .about-page .about-copy p {
   position: relative;
 
-  width: 48vw;
-  max-width: 48vw;
+  display: block !important;
 
-  margin-top: 0;
-  margin-bottom: 110px;
+  width: 50vw !important;
+  max-width: 50vw !important;
+
+  margin-top: 0 !important;
+  margin-bottom: 110px !important;
 
   text-align: left;
+
+  grid-column: auto !important;
 }
 
 
 /* =========================================================
-   ABOUT — LEFT PARAGRAPHS
+   ABOUT — LEFT
 ========================================================= */
 
 .about-page .about-copy p.text-left {
-  margin-left: 0;
-  margin-right: auto;
+  margin-left: 0 !important;
+  margin-right: auto !important;
 
-  text-align: left;
+  width: 50vw !important;
+  max-width: 50vw !important;
 }
 
 
 /* =========================================================
-   ABOUT — RIGHT PARAGRAPHS
+   ABOUT — RIGHT
 ========================================================= */
 
 .about-page .about-copy p.text-right {
-  margin-left: 50vw;
-  margin-right: 0;
+  margin-left: 48vw !important;
+  margin-right: 0 !important;
 
-  text-align: left;
+  width: 50vw !important;
+  max-width: 50vw !important;
 }
 
 
@@ -336,7 +315,6 @@ nav a:hover {
 .about-page .about-copy strong {
   font-weight: 500;
 }
-
 
 /* =========================================================
    PEOPLE PAGE
