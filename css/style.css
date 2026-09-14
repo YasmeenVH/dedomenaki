@@ -907,3 +907,244 @@ nav a:hover {
     min-height: 160px;
   }
 }
+
+/* =========================================
+   APPROACH PAGE
+========================================= */
+
+.approach-page {
+  margin: 0;
+  padding: 0;
+  background: rgb(245,245,242);
+  color: black;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+
+/* HEADER */
+
+.approach-page header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  padding: 28px 35px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  z-index: 100;
+}
+
+.approach-page .logo {
+  color: black;
+  text-decoration: none;
+
+  font-size: 18px;
+  font-weight: 600;
+
+  letter-spacing: .08em;
+}
+
+.approach-page nav {
+  display: flex;
+  gap: 30px;
+}
+
+.approach-page nav a {
+  color: black;
+  text-decoration: none;
+
+  font-size: 13px;
+  font-weight: 400;
+
+  letter-spacing: .08em;
+
+  transition: opacity .2s ease;
+}
+
+.approach-page nav a:hover {
+  opacity: .5;
+}
+
+
+/* CANVAS */
+
+#approach-canvas {
+  position: fixed;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  pointer-events: none;
+
+  z-index: 1;
+}
+
+
+/* CONTENT */
+
+.approach-content {
+  position: relative;
+
+  width: 100%;
+
+  padding: 145px 35px 180px;
+
+  z-index: 10;
+}
+
+.approach-label {
+  margin-bottom: 70px;
+
+  font-size: 13px;
+  font-weight: 500;
+
+  letter-spacing: .08em;
+}
+
+
+/* TEXT */
+
+.approach-copy {
+  position: relative;
+
+  width: 100%;
+  max-width: none;
+
+  display: block;
+
+  font-size: clamp(25px, 3vw, 46px);
+
+  line-height: 1.02;
+
+  letter-spacing: -.035em;
+
+  font-weight: 500;
+}
+
+
+.approach-copy p {
+  position: relative;
+
+  display: block;
+
+  width: 50vw;
+  max-width: 50vw;
+
+  margin-top: 0;
+  margin-bottom: 110px;
+
+  text-align: left;
+}
+
+
+/* LEFT */
+
+.approach-copy p.text-left {
+  margin-left: 0;
+  margin-right: auto;
+
+  width: 50vw;
+  max-width: 50vw;
+}
+
+
+/* RIGHT */
+
+.approach-copy p.text-right {
+  margin-left: 48vw;
+  margin-right: 0;
+
+  width: 50vw;
+  max-width: 50vw;
+}
+
+
+/* BOLD */
+
+.approach-copy strong {
+  font-weight: 500;
+}
+
+
+/* Slightly larger opening statement */
+
+.approach-copy .intro {
+  max-width: 47vw;
+}
+
+
+/* Final statement */
+
+.approach-copy .final-line {
+  margin-bottom: 40px;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+  .approach-page header {
+    padding: 20px;
+  }
+
+  .approach-page nav {
+    gap: 15px;
+  }
+
+  .approach-page nav a {
+    font-size: 11px;
+  }
+
+  .approach-content {
+    padding: 110px 20px 100px;
+  }
+
+  .approach-label {
+    margin-bottom: 60px;
+  }
+
+  .approach-copy {
+    width: 100%;
+
+    display: block;
+
+    font-size: 8vw;
+    line-height: 1.05;
+  }
+
+  .approach-copy p {
+    width: 90vw;
+    max-width: 90vw;
+
+    margin-bottom: 70px;
+  }
+
+  .approach-copy p.text-left {
+    margin-left: 0;
+
+    width: 90vw;
+    max-width: 90vw;
+
+    text-align: left;
+  }
+
+  .approach-copy p.text-right {
+    margin-left: 10vw;
+
+    width: 80vw;
+    max-width: 80vw;
+
+    text-align: left;
+  }
+
+  .approach-copy .intro {
+    max-width: 90vw;
+  }
+}
