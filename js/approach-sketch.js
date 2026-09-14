@@ -1,133 +1,97 @@
-let roots = [];
+let nodes = [];
+let branches = [];
 
-const nodes = [
+let activeNode = null;
+
+
+/* =========================================
+   NODE DEFINITIONS
+========================================= */
+
+const nodeData = [
+
   {
     name: "PLACE",
     x: 0.50,
-    y: 0.10,
-    children: [
-      "LAND",
-      "ENVIRONMENT",
-      "HISTORY"
-    ]
+    y: 0.09,
+    children: ["LAND", "ENVIRONMENT", "HISTORY"]
   },
 
   {
     name: "ARCHIVE",
-    x: 0.37,
+    x: 0.35,
     y: 0.17,
-    children: [
-      "RECORD",
-      "MEMORY",
-      "TRACE"
-    ]
+    children: ["RECORD", "MEMORY", "TRACE"]
   },
 
   {
     name: "EXPERIENCE",
-    x: 0.63,
+    x: 0.65,
     y: 0.17,
-    children: [
-      "PRACTICE",
-      "VOICE",
-      "LIVED"
-    ]
+    children: ["PRACTICE", "VOICE", "LIVED"]
   },
 
   {
     name: "CONTEXT",
     x: 0.50,
     y: 0.25,
-    children: [
-      "LOCAL KNOWLEDGE",
-      "RELATION",
-      "HISTORY"
-    ]
+    children: ["LOCAL KNOWLEDGE", "MEMORY", "PLACE"]
   },
 
   {
     name: "DATA + PEOPLE",
     x: 0.50,
     y: 0.36,
-    children: [
-      "COLLECTION",
-      "OBSERVATION",
-      "INTERACTION"
-    ]
+    children: ["COLLECTION", "OBSERVATION", "INTERACTION"]
   },
 
   {
     name: "SIGNAL / NOISE",
     x: 0.50,
-    y: 0.46,
-    children: [
-      "PATTERN",
-      "ABSENCE",
-      "TRACE"
-    ]
+    y: 0.47,
+    children: ["PATTERN", "ABSENCE", "TRACE"]
   },
 
   {
     name: "RELATIONSHIPS",
     x: 0.50,
-    y: 0.56,
-    children: [
-      "CONNECTION",
-      "GAP",
-      "NETWORK"
-    ]
+    y: 0.57,
+    children: ["CONNECTION", "GAP", "NETWORK"]
   },
 
   {
     name: "INTERPRETATION",
     x: 0.50,
-    y: 0.66,
-    children: [
-      "MEANING",
-      "PERSPECTIVE",
-      "CONTEXT"
-    ]
+    y: 0.67,
+    children: ["MEANING", "PERSPECTIVE", "CONTEXT"]
   },
 
   {
     name: "REPORT",
-    x: 0.37,
-    y: 0.76,
-    children: [
-      "DOCUMENT",
-      "EVIDENCE"
-    ]
+    x: 0.35,
+    y: 0.77,
+    children: ["DOCUMENT", "EVIDENCE"]
   },
 
   {
     name: "MAP",
     x: 0.50,
-    y: 0.76,
-    children: [
-      "PLACE",
-      "RELATION"
-    ]
+    y: 0.77,
+    children: ["PLACE", "RELATION"]
   },
 
   {
     name: "ARCHIVE",
-    x: 0.63,
-    y: 0.76,
-    children: [
-      "MEMORY",
-      "RECORD"
-    ]
+    x: 0.65,
+    y: 0.77,
+    children: ["MEMORY", "RECORD"]
   },
 
   {
     name: "STORY",
     x: 0.50,
     y: 0.87,
-    children: [
-      "NARRATIVE",
-      "SHARING",
-      "EXPERIENCE"
-    ]
+    children: ["NARRATIVE", "SHARING", "EXPERIENCE"]
   },
 
   {
@@ -139,64 +103,74 @@ const nodes = [
 ];
 
 
+/* =========================================
+   SETUP
+========================================= */
+
 function setup() {
 
-  let canvas = createCanvas(windowWidth, windowHeight);
+  let canvas = createCanvas(
+    windowWidth * 0.58,
+    windowHeight
+  );
 
   canvas.parent("approach-canvas");
 
-  canvas.style("position", "fixed");
+  canvas.style("position", "absolute");
   canvas.style("top", "0");
   canvas.style("left", "0");
-  canvas.style("z-index", "1");
 
   textFont("Arial");
 
-  createRoots();
+  createNodes();
 }
 
 
-function createRoots() {
+/* =========================================
+   CREATE NODES
+========================================= */
 
-  roots = [];
+function createNodes() {
 
-  for (let i = 0; i < nodes.length; i++) {
+  nodes = [];
 
-    let n = nodes[i];
+  for (let data of nodeData) {
 
-    let x = width * n.x;
-    let y = height * n.y;
-
-    let root = new RootNode(
-      n.name,
-      x,
-      y,
-      n.children
+    let node = new Node(
+      data.name,
+      width * data.x,
+      height * data.y,
+      data.children
     );
 
-    roots.push(root);
-  }
-}
-
-
-function draw() {
-
-  clear();
-
-  for (let root of roots) {
-
-    root.update();
-    root.display();
-
+    nodes.push(node);
   }
 }
 
 
 /* =========================================
-   ROOT NODE
+   DRAW
 ========================================= */
 
-class RootNode {
+function draw() {
+
+  clear();
+
+  for (let node of nodes) {
+    node.update();
+  }
+
+  for (let node of nodes) {
+    node.display();
+  }
+}
+
+
+/* =========================================
+   NODE
+========================================= */
+
+class Node {
 
   constructor(name, x, y, children) {
 
@@ -207,9 +181,10 @@ class RootNode {
 
     this.children = children;
 
-    this.branches = [];
-
+    this.grown = false;
     this.growth = 0;
+
+    this.branches = [];
 
     this.createBranches();
   }
@@ -217,34 +192,33 @@ class RootNode {
 
   createBranches() {
 
-    let amount = this.children.length;
+    let count = this.children.length;
 
-    for (let i = 0; i < amount; i++) {
+    for (let i = 0; i < count; i++) {
 
-      let spread;
+      let angle;
 
-      if (amount === 1) {
-        spread = 0;
-      }
-      else {
-        spread = map(
+      if (count === 1) {
+
+        angle = -HALF_PI;
+
+      } else {
+
+        angle = map(
           i,
           0,
-          amount - 1,
-          -0.7,
-          0.7
-        );
+          count - 1,
+          -0.8,
+          0.8
+        ) - HALF_PI;
+
       }
-
-      let angle = -HALF_PI + spread;
-
-      let length = random(35, 75);
 
       let branch = new Branch(
         this.x,
         this.y,
         angle,
-        length,
+        random(45, 75),
         this.children[i]
       );
 
@@ -255,48 +229,42 @@ class RootNode {
 
   update() {
 
-    let d = dist(
+    let distance = dist(
       mouseX,
       mouseY,
       this.x,
       this.y
     );
 
+
     /*
-      Cursor activates nearby roots.
+      Interaction only causes growth.
+      It does NOT cause disappearance.
     */
 
-    if (d < 180) {
+    if (distance < 140) {
 
-      this.growth += 0.035;
-
-      this.growth = constrain(
-        this.growth,
-        0,
-        1
-      );
+      this.grown = true;
 
     }
-    else {
 
-      /*
-        Never disappear completely.
-        They remain as faint traces.
-      */
 
-      this.growth -= 0.002;
+    if (this.grown) {
+
+      this.growth += 0.018;
 
       this.growth = constrain(
         this.growth,
         0,
         1
       );
+
     }
 
 
     for (let branch of this.branches) {
 
-      branch.update(this.growth);
+      branch.grow(this.growth);
 
     }
   }
@@ -305,16 +273,16 @@ class RootNode {
   display() {
 
     /*
-      Main node label
+      Main word
     */
 
     noStroke();
 
-    fill(0, 150);
+    fill(0, 165);
 
     textAlign(CENTER, CENTER);
 
-    textSize(11);
+    textSize(10);
 
     text(
       this.name,
@@ -324,13 +292,36 @@ class RootNode {
 
 
     /*
-      Organic branches
+      Branches
     */
 
     for (let branch of this.branches) {
 
       branch.display();
 
+    }
+
+
+    /*
+      Small interaction point
+    */
+
+    if (
+      dist(
+        mouseX,
+        mouseY,
+        this.x,
+        this.y
+      ) < 140
+    ) {
+
+      fill(0, 180);
+
+      circle(
+        this.x,
+        this.y,
+        3
+      );
     }
   }
 }
@@ -359,96 +350,122 @@ class Branch {
   }
 
 
-  update(parentGrowth) {
+  grow(amount) {
 
     /*
-      Branch only grows when parent node
-      is activated by the mouse.
+      Permanent accumulation.
     */
 
-    this.progress += parentGrowth * 0.015;
+    if (amount > this.progress) {
 
-    this.progress = constrain(
-      this.progress,
-      0,
-      1
-    );
+      this.progress += 0.012;
+
+      this.progress = constrain(
+        this.progress,
+        0,
+        1
+      );
+    }
   }
 
 
   display() {
 
-    let segments = 18;
+    /*
+      Very faint dormant root.
+    */
 
-    let visible = floor(
+    if (this.progress <= 0) return;
+
+
+    let segments = 20;
+
+    let visibleSegments = floor(
       this.progress * segments
     );
 
-    if (visible <= 0) return;
 
+    stroke(0, 40);
+
+    strokeWeight(0.55);
 
     noFill();
 
-    stroke(0, 45);
-
-    strokeWeight(0.6);
-
-
     beginShape();
 
-    for (let i = 0; i <= visible; i++) {
+
+    for (
+      let i = 0;
+      i <= visibleSegments;
+      i++
+    ) {
 
       let t = i / segments;
 
-      let distance = this.length * t;
+      let distance =
+        this.length * t;
+
 
       /*
-        Small sinusoidal movement creates
-        an organic/root-like curve.
+        Organic curvature.
+        Very cheap computationally.
       */
 
       let bend =
-        sin(t * 5 + this.seed) *
-        10 *
+        sin(
+          t * 5 +
+          this.seed
+        ) *
+        8 *
         t;
 
 
       let px =
         this.x +
-        cos(this.angle) * distance +
-        cos(this.angle + HALF_PI) * bend;
+        cos(this.angle) *
+        distance +
+        cos(this.angle + HALF_PI) *
+        bend;
+
 
       let py =
         this.y +
-        sin(this.angle) * distance +
-        sin(this.angle + HALF_PI) * bend;
+        sin(this.angle) *
+        distance +
+        sin(this.angle + HALF_PI) *
+        bend;
 
 
-      curveVertex(px, py);
+      curveVertex(
+        px,
+        py
+      );
     }
+
 
     endShape();
 
 
     /*
-      Reveal terminal word only
-      when branch is almost fully grown.
+      Terminal point.
     */
 
-    if (this.progress > 0.85) {
+    if (this.progress >= 1) {
 
       let endX =
         this.x +
-        cos(this.angle) * this.length;
+        cos(this.angle) *
+        this.length;
 
       let endY =
         this.y +
-        sin(this.angle) * this.length;
+        sin(this.angle) *
+        this.length;
 
-
-      fill(0, 85);
 
       noStroke();
+
+      fill(0, 90);
 
       circle(
         endX,
@@ -457,28 +474,53 @@ class Branch {
       );
 
 
-      fill(0, 110);
+      /*
+        Tiny secondary vocabulary.
+      */
 
-      textAlign(CENTER, CENTER);
+      fill(0, 90);
 
-      textSize(8);
+      textSize(7);
+
+      textAlign(
+        CENTER,
+        CENTER
+      );
 
       text(
         this.label,
         endX,
-        endY - 10
+        endY - 9
       );
     }
   }
 }
 
 
+/* =========================================
+   RESIZE
+========================================= */
+
 function windowResized() {
 
   resizeCanvas(
-    windowWidth,
+    windowWidth * 0.58,
     windowHeight
   );
 
-  createRoots();
+  /*
+    Important:
+    don't recreate nodes here.
+
+    Existing growth should remain.
+  */
+
+  for (let i = 0; i < nodes.length; i++) {
+
+    nodes[i].x =
+      width * nodeData[i].x;
+
+    nodes[i].y =
+      height * nodeData[i].y;
+  }
 }
