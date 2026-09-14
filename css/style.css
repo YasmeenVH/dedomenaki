@@ -907,7 +907,6 @@ nav a:hover {
     min-height: 160px;
   }
 }
-
 /* =========================================
    APPROACH PAGE
 ========================================= */
@@ -942,10 +941,8 @@ nav a:hover {
 .approach-page .logo {
   color: black;
   text-decoration: none;
-
   font-size: 18px;
   font-weight: 600;
-
   letter-spacing: .08em;
 }
 
@@ -957,12 +954,9 @@ nav a:hover {
 .approach-page nav a {
   color: black;
   text-decoration: none;
-
   font-size: 13px;
   font-weight: 400;
-
   letter-spacing: .08em;
-
   transition: opacity .2s ease;
 }
 
@@ -971,22 +965,27 @@ nav a:hover {
 }
 
 
-/* CANVAS */
+/* =========================================
+   DIAGRAM
+========================================= */
 
 #approach-canvas {
   position: fixed;
-  inset: 0;
+  top: 0;
+  right: 0;
 
-  width: 100%;
-  height: 100%;
+  width: 58vw;
+  height: 100vh;
 
   pointer-events: none;
 
-  z-index: 1;
+  z-index: 2;
 }
 
 
-/* CONTENT */
+/* =========================================
+   CONTENT
+========================================= */
 
 .approach-content {
   position: relative;
@@ -998,29 +997,29 @@ nav a:hover {
   z-index: 10;
 }
 
+
 .approach-label {
   margin-bottom: 70px;
 
   font-size: 13px;
   font-weight: 500;
-
   letter-spacing: .08em;
 }
 
 
-/* TEXT */
+/* =========================================
+   TEXT COLUMN
+========================================= */
 
 .approach-copy {
   position: relative;
 
-  width: 100%;
-  max-width: none;
+  width: 39vw;
+  max-width: 560px;
 
-  display: block;
+  font-size: clamp(22px, 2.35vw, 36px);
 
-  font-size: clamp(25px, 3vw, 46px);
-
-  line-height: 1.02;
+  line-height: 1.06;
 
   letter-spacing: -.035em;
 
@@ -1028,54 +1027,47 @@ nav a:hover {
 }
 
 
+/*
+  Every paragraph stays inside the
+  left editorial column.
+*/
+
 .approach-copy p {
   position: relative;
 
-  display: block;
-
-  width: 50vw;
-  max-width: 50vw;
+  width: 100%;
+  max-width: 100%;
 
   margin-top: 0;
-  margin-bottom: 110px;
+  margin-bottom: 95px;
 
   text-align: left;
 }
 
 
-/* LEFT */
+/* Small editorial shifts */
 
 .approach-copy p.text-left {
   margin-left: 0;
-  margin-right: auto;
-
-  width: 50vw;
-  max-width: 50vw;
 }
-
-
-/* RIGHT */
 
 .approach-copy p.text-right {
-  margin-left: 48vw;
-  margin-right: 0;
-
-  width: 50vw;
-  max-width: 50vw;
+  margin-left: 4vw;
+  width: calc(100% - 4vw);
 }
 
 
-/* BOLD */
+/* Opening statement */
+
+.approach-copy .intro {
+  width: 100%;
+}
+
+
+/* Bold statements */
 
 .approach-copy strong {
   font-weight: 500;
-}
-
-
-/* Slightly larger opening statement */
-
-.approach-copy .intro {
-  max-width: 47vw;
 }
 
 
@@ -1086,65 +1078,44 @@ nav a:hover {
 }
 
 
-/* MOBILE */
+/* =========================================
+   MOBILE
+========================================= */
 
-@media (max-width: 700px) {
+@media (max-width: 900px) {
 
-  .approach-page header {
-    padding: 20px;
-  }
+  #approach-canvas {
+    position: relative;
 
-  .approach-page nav {
-    gap: 15px;
-  }
+    width: 100%;
+    height: 75vh;
 
-  .approach-page nav a {
-    font-size: 11px;
+    margin-top: 20px;
+
+    pointer-events: none;
   }
 
   .approach-content {
-    padding: 110px 20px 100px;
-  }
-
-  .approach-label {
-    margin-bottom: 60px;
+    padding: 110px 20px 80px;
   }
 
   .approach-copy {
-    width: 100%;
+    width: 90vw;
+    max-width: none;
 
-    display: block;
-
-    font-size: 8vw;
-    line-height: 1.05;
+    font-size: 7.5vw;
   }
 
   .approach-copy p {
     width: 90vw;
     max-width: 90vw;
 
-    margin-bottom: 70px;
-  }
-
-  .approach-copy p.text-left {
-    margin-left: 0;
-
-    width: 90vw;
-    max-width: 90vw;
-
-    text-align: left;
+    margin-bottom: 65px;
   }
 
   .approach-copy p.text-right {
-    margin-left: 10vw;
-
-    width: 80vw;
-    max-width: 80vw;
-
-    text-align: left;
+    margin-left: 8vw;
+    width: 82vw;
   }
 
-  .approach-copy .intro {
-    max-width: 90vw;
-  }
 }
