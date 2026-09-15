@@ -1,2 +1,2 @@
-# dedomenaki
-static website for dedomenaki
+# dedomenakia
+static website for dedomenakia
